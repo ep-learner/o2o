@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.o2o.dao.ProductImgDao" >
+
+    <select id="selectProductImgListByProductId"  resultType="com.o2o.entity.ProductImg">
+        select *
+        from tb_product_img
+        where product_id=#{productId}
+        ORDER BY  product_img_id
+    </select>
+
+    <delete id="deleteProductImgByProductId" >
+        delete from tb_product_img where product_id=#{productId}
+    </delete>
+
+    <insert id="batchInsertProductImg" parameterType="com.o2o.entity.ProductImg" useGeneratedKeys="true"
+            keyProperty="productImgId" keyColumn="product_img_id">
+        INSERT INTO tb_product_img (
+        img_addr,
+        img_desc,
+        product_id,
+        priority,
+        create_time
+        ) VALUES
+        <foreach collection="list"  separator=","
+                 item="productImg" index="i">
+        (#{productImg.imgAddr},#{productImg.imgDesc},#{productImg.productId},#{productImg.priority},#{productImg.createTime})
+        </foreach>
+	</insert>
+</mapper>

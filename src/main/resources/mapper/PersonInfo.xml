@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.o2o.dao.PersonInfoDao">
+
+
+    <insert id="insertPersonInfo" parameterType="com.o2o.entity.PersonInfo" useGeneratedKeys="true"
+            keyProperty="userId" keyColumn="user_id">
+		INSERT INTO
+		tb_person_info(user_name,profile_img,email,gender,enable_status,user_type,create_time,last_edit_time)
+		VALUES
+		(#{userName},#{profileImg},#{email},#{gender},#{enableStatus},#{userType},#{createTime},#{lastEditTime})
+	</insert>
+
+    <update id="updatePersonInfo">
+        update tb_person_info
+        <set>
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="profileImg != null">profile_img = #{profileImg},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="enableStatus != null">enable_status = #{enableStatus},</if>
+            <if test="userType != null">user_type = #{userType},</if>
+            <if test="lastEditTime != null">last_edit_time = #{lastEditTime}</if>
+        </set>
+        where
+        user_id=#{userId}
+    </update>
+
+    <select id="queryInfoByUserId" resultType="com.o2o.entity.PersonInfo" parameterType="long">
+		SELECT
+		user_id,
+		user_name,
+		gender,
+		email,
+		user_type,
+		create_time,
+		last_edit_time,
+		enable_status
+		FROM
+		tb_person_info
+		WHERE
+		user_id=#{userId}
+	</select>
+</mapper>
