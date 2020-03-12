@@ -186,7 +186,7 @@ Mybatis-config.xml:添加拦截器插件
 | PersonInfo      | 用户       |
 | HeadLine        | 头条       |
 
-
+![1584021639080](https://github.com/ep-learner/o2o/blob/master/pic.png)
 
 ## 主要功能
 
@@ -217,7 +217,5 @@ Mybatis-config.xml:添加拦截器插件
 
 
 ## 项目地址
-
- http://116.62.102.69/o2o/front/index 
-
+http://www.fucj.xyz/o2o/front/index
 PS：考虑使用体验，建议在移动端访问。
