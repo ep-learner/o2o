@@ -215,7 +215,7 @@ Mybatis-config.xml:添加拦截器插件
 
 
 ## 项目地址
-http://www.fucj.xyz/o2o/front/index
+http://116.62.102.69/o2o/front/index
 PS：考虑使用体验，建议在移动端访问。
 
 [参考链接:慕课网](https://coding.imooc.com/class/144.html)
